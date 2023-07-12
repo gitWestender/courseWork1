@@ -10,7 +10,7 @@ public class Employee {
         this.setEmployee(employee);
         this.setDepartment(department);
         this.setSalary(salary);
-        this.id = counter++;
+        id = counter++;
     }
 
     public String getEmployee() {
@@ -39,6 +39,19 @@ public class Employee {
 
     public static void main(String[] args) {
         Employee[] employeesArray = new Employee[10];
+        Employee emp1 = new Employee("Катуков Василий Илларионович", 3, 5000);
+        Employee emp2 = new Employee("Хлебникова Екатерина Ивановна", 1, 8500);
+        Employee emp3 = new Employee("Чуков Денис Олегович", 5, 3750);
+        Employee emp4 = new Employee("Салькова Ольга Николаевна", 5, 4250);
+
+        addToArray(employeesArray, emp1);
+        addToArray(employeesArray, emp2);
+        addToArray(employeesArray, emp3);
+        addToArray(employeesArray, emp4);
+
+        printAllNames(employeesArray);
+        printAllInfo(employeesArray);
+
     }
 
     static Employee[] addToArray (Employee[] array, Employee emp){
@@ -54,6 +67,19 @@ public class Employee {
         for (int i = 0; i < array.length; i++) {
             if (array[i] != null){
                 System.out.println(array[i].employee);
+            }
+        }
+    }
+
+    public String toString(){
+        return "Сотрудник №" + id + " " + getEmployee() + ", отдел №" + getDepartment()
+                + ", зарплата сотрудника: " + getSalary();
+    }
+
+    static void printAllInfo(Employee[] array){
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != null) {
+                System.out.println(array[i].toString());
             }
         }
     }
