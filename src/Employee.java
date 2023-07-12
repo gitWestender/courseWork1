@@ -52,6 +52,8 @@ public class Employee {
         printAllNames(employeesArray);
         printAllInfo(employeesArray);
 
+        getSummOfSalary(employeesArray);
+
     }
 
     static Employee[] addToArray (Employee[] array, Employee emp){
@@ -82,5 +84,15 @@ public class Employee {
                 System.out.println(array[i].toString());
             }
         }
+    }
+
+    static void getSummOfSalary(Employee[] array){
+        int summ = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != null){
+                summ += array[i].getSalary();
+            }
+        }
+        System.out.println("Общая сумма зарплат составляет - " + summ);
     }
 }
