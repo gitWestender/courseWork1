@@ -38,5 +38,16 @@ public class Employee {
     }
 
     public static void main(String[] args) {
+        Employee[] EmployeesArray = new Employee[10];
+    }
+
+    static Employee[] addToArray (Employee[] array, Employee emp){
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == null){
+                array[i] = emp;
+                break;
+            }
+        }
+        return array;
     }
 }
