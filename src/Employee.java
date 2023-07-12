@@ -86,13 +86,17 @@ public class Employee {
         }
     }
 
-    static void getSummOfSalary(Employee[] array){
+    static int getSummOfSalary(Employee[] array){
         int summ = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] != null){
                 summ += array[i].getSalary();
             }
         }
-        System.out.println("Общая сумма зарплат составляет - " + summ);
+        return summ;
+    }
+
+    static int getAverageOfSalary(Employee[] array){
+        return  getSummOfSalary(array) / array.length;
     }
 }
