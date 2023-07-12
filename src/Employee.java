@@ -38,7 +38,7 @@ public class Employee {
     }
 
     public static void main(String[] args) {
-        Employee[] EmployeesArray = new Employee[10];
+        Employee[] employeesArray = new Employee[10];
     }
 
     static Employee[] addToArray (Employee[] array, Employee emp){
@@ -49,5 +49,12 @@ public class Employee {
             }
         }
         return array;
+    }
+    static void printAllNames (Employee[] array){
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != null){
+                System.out.println(array[i].employee);
+            }
+        }
     }
 }
