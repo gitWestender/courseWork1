@@ -64,10 +64,13 @@ public class Employee {
         findMaxSalary(employeesArray);
         findMinSalary(employeesArray);
 
-        System.out.println("\nСреднее значение зарплат сотрудников равно "+ getAverageOfSalary(employeesArray));
+        System.out.println("\nСреднее значение зарплат сотрудников равно " + getAverageOfSalary(employeesArray));
 
         indexAllSalary(employeesArray);
         printAllInfo(employeesArray);
+
+        findMaxSalary(employeesArray, 5);
+        findMinSalary(employeesArray, 5);
     }
 
     static Employee[] addToArray(Employee[] array, Employee emp) {
@@ -121,7 +124,7 @@ public class Employee {
         int id = 0;
 
         for (int i = 0; i < array.length; i++) {
-            if (array[i] != null && array[i].salary > result){
+            if (array[i] != null && array[i].salary > result) {
                 result = array[i].salary;
                 id = array[i].getId();
             }
@@ -130,12 +133,12 @@ public class Employee {
         System.out.println("\nСотрудник №" + id + " имеет максимальную зарплату равную " + result);
     }
 
-    static void findMinSalary(Employee[] array){
+    static void findMinSalary(Employee[] array) {
         int result = Integer.MAX_VALUE;
         int id = 0;
 
         for (int i = 0; i < array.length; i++) {
-            if (array[i] != null && array[i].salary < result){
+            if (array[i] != null && array[i].salary < result) {
                 result = array[i].salary;
                 id = array[i].getId();
             }
@@ -144,15 +147,43 @@ public class Employee {
         System.out.println("\nСотрудник №" + id + " имеет минимальную зарплату равную " + result);
     }
 
-    static void indexSalary(Employee emp){
-        emp.salary += emp.salary*0.1f;
+    static void indexSalary(Employee emp) {
+        emp.salary += emp.salary * 0.1f;
     }
 
-    static void indexAllSalary(Employee[] array){
+    static void indexAllSalary(Employee[] array) {
         int i = 0;
-        while (array[i] != null){
+        while (array[i] != null) {
             indexSalary(array[i]);
             i++;
         }
+    }
+
+    static void findMaxSalary(Employee[] array, int department) {
+        int result = Integer.MIN_VALUE;
+        int id = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != null && array[i].salary > result && array[i].department == department) {
+                result = array[i].salary;
+                id = array[i].getId();
+            }
+        }
+
+        System.out.println("\nСотрудник отдела №" + department + " c ID " + id + " имеет максимальную зарплату равную " + result);
+    }
+
+    static void findMinSalary(Employee[] array, int department) {
+        int result = Integer.MAX_VALUE;
+        int id = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != null && array[i].salary < result && array[i].department == department) {
+                result = array[i].salary;
+                id = array[i].getId();
+            }
+        }
+
+        System.out.println("\nСотрудник отдела №" + department + " c ID " + id + " имеет минимальную зарплату равную " + result);
     }
 }
