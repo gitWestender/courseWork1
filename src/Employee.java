@@ -77,6 +77,9 @@ public class Employee {
 
         indexAllSalary(employeesArray, 5, 30);
         printAllInfo(employeesArray, 5);
+
+        printAllMinEmployees(employeesArray, 6000);
+        printAllMaxEmployees(employeesArray, 6000);
     }
 
     static Employee[] addToArray(Employee[] array, Employee emp) {
@@ -164,7 +167,8 @@ public class Employee {
             i++;
         }
     }
-// Перегружаем методы и выполняем задания Повышенной сложности
+
+    // Перегружаем методы и выполняем задания Повышенной сложности
     static void findMaxSalary(Employee[] array, int department) {
         int result = Integer.MIN_VALUE;
         int id = 0;
@@ -206,7 +210,7 @@ public class Employee {
     static int getAverageOfSalary(Employee[] array, int department) {
         int idCount = 0;
         for (int i = 0; i < array.length; i++) {
-            if (array[i] != null && array[i].department == department){
+            if (array[i] != null && array[i].department == department) {
                 idCount++;
             }
         }
@@ -214,13 +218,13 @@ public class Employee {
     }
 
     static void indexSalary(Employee emp, int percent) {
-        emp.salary += emp.salary * (percent/100f);
+        emp.salary += emp.salary * (percent / 100f);
     }
 
     static void indexAllSalary(Employee[] array, int department, int percent) {
         int i = 0;
         for (int j = 0; j < array.length; j++) {
-            if (array[j] != null && array[j].department == department){
+            if (array[j] != null && array[j].department == department) {
                 indexSalary(array[j], percent);
                 i++;
             }
@@ -228,8 +232,27 @@ public class Employee {
     }
 
     static void printAllInfo(Employee[] array, int department) {
+        System.out.println("\nВсе сотрудники выбранного отдела (" + department + "):");
         for (int i = 0; i < array.length; i++) {
             if (array[i] != null && array[i].department == department) {
+                System.out.printf("Сотрудник №%d %s, зарплата сотрудника: %d \n", array[i].id, array[i].employee, array[i].salary);
+            }
+        }
+    }
+
+    static void printAllMinEmployees(Employee[] array, int salary) {
+        System.out.println("\nСотрудники с запралтой меньше указанной (" + salary + "):");
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != null && array[i].salary < salary) {
+                System.out.printf("Сотрудник №%d %s, зарплата сотрудника: %d \n", array[i].id, array[i].employee, array[i].salary);
+            }
+        }
+    }
+
+    static void printAllMaxEmployees(Employee[] array, int salary) {
+        System.out.println("\nСотрудники с зарплатой выше и равной указанной (" + salary + "):");
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != null && array[i].salary >= salary) {
                 System.out.printf("Сотрудник №%d %s, зарплата сотрудника: %d \n", array[i].id, array[i].employee, array[i].salary);
             }
         }
