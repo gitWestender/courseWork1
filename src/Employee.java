@@ -6,7 +6,7 @@ public class Employee {
     private int id;
     static int counter = 1;
 
-    public Employee (String employee, int department, int salary){
+    public Employee(String employee, int department, int salary) {
         this.setEmployee(employee);
         this.setDepartment(department);
         this.setSalary(salary);
@@ -61,33 +61,35 @@ public class Employee {
         printAllInfo(employeesArray);
 
         getSummOfSalary(employeesArray);
+        findMaxSalary(employeesArray);
 
     }
 
-    static Employee[] addToArray (Employee[] array, Employee emp){
+    static Employee[] addToArray(Employee[] array, Employee emp) {
         for (int i = 0; i < array.length; i++) {
-            if (array[i] == null){
+            if (array[i] == null) {
                 array[i] = emp;
                 break;
             }
         }
         return array;
     }
-    static void printAllNames (Employee[] array){
+
+    static void printAllNames(Employee[] array) {
         for (int i = 0; i < array.length; i++) {
-            if (array[i] != null){
+            if (array[i] != null) {
                 System.out.println(array[i].employee);
             }
         }
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Сотрудник №" + id + " " + getEmployee() + ", отдел №" + getDepartment()
                 + ", зарплата сотрудника: " + getSalary();
     }
 
-    static void printAllInfo(Employee[] array){
+    static void printAllInfo(Employee[] array) {
         for (int i = 0; i < array.length; i++) {
             if (array[i] != null) {
                 System.out.println(array[i].toString());
@@ -95,17 +97,29 @@ public class Employee {
         }
     }
 
-    static int getSummOfSalary(Employee[] array){
+    static int getSummOfSalary(Employee[] array) {
         int summ = 0;
         for (int i = 0; i < array.length; i++) {
-            if (array[i] != null){
+            if (array[i] != null) {
                 summ += array[i].getSalary();
             }
         }
         return summ;
     }
 
-    static int getAverageOfSalary(Employee[] array){
-        return  getSummOfSalary(array) / array.length;
+    static int getAverageOfSalary(Employee[] array) {
+        return getSummOfSalary(array) / array.length;
+    }
+
+    static void findMaxSalary(Employee[] array) {
+        int result = Integer.MIN_VALUE;
+        int id = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != null && array[i].salary > result){
+                result = array[i].salary;
+                id = array[i].getId();
+            }
+        }
+        System.out.println("Сотрудник №" + id + " имеет минимальную зарплату равную " + result);
     }
 }
