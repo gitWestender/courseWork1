@@ -76,7 +76,7 @@ public class Employee {
         System.out.println("\nСреднее значение зарплат выбранного отдела равно " + getAverageOfSalary(employeesArray, 5));
 
         indexAllSalary(employeesArray, 5, 30);
-        printAllInfo(employeesArray);
+        printAllInfo(employeesArray, 5);
     }
 
     static Employee[] addToArray(Employee[] array, Employee emp) {
@@ -223,6 +223,14 @@ public class Employee {
             if (array[j] != null && array[j].department == department){
                 indexSalary(array[j], percent);
                 i++;
+            }
+        }
+    }
+
+    static void printAllInfo(Employee[] array, int department) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != null && array[i].department == department) {
+                System.out.printf("Сотрудник №%d %s, зарплата сотрудника: %d \n", array[i].id, array[i].employee, array[i].salary);
             }
         }
     }
