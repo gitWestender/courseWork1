@@ -3,14 +3,14 @@ public class Employee {
     private String employee;
     private int department;
     private int salary;
-    static int id;
+    private int id;
     static int counter = 1;
 
     public Employee (String employee, int department, int salary){
         this.setEmployee(employee);
         this.setDepartment(department);
         this.setSalary(salary);
-        id = counter++;
+        this.setId(counter++);
     }
 
     public String getEmployee() {
@@ -35,6 +35,14 @@ public class Employee {
 
     public void setSalary(int salary) {
         this.salary = salary;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public static void main(String[] args) {
@@ -73,6 +81,7 @@ public class Employee {
         }
     }
 
+    @Override
     public String toString(){
         return "Сотрудник №" + id + " " + getEmployee() + ", отдел №" + getDepartment()
                 + ", зарплата сотрудника: " + getSalary();
