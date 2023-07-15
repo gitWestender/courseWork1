@@ -64,6 +64,8 @@ public class Employee {
         findMaxSalary(employeesArray);
         findMinSalary(employeesArray);
 
+        System.out.println("\nСреднее значение зарплат сотрудников равно "+ getAverageOfSalary(employeesArray));
+
     }
 
     static Employee[] addToArray(Employee[] array, Employee emp) {
@@ -123,7 +125,7 @@ public class Employee {
             }
         }
 
-        System.out.println("Сотрудник №" + id + " имеет максимальную зарплату равную " + result);
+        System.out.println("\nСотрудник №" + id + " имеет максимальную зарплату равную " + result);
     }
 
     static void findMinSalary(Employee[] array){
@@ -137,6 +139,6 @@ public class Employee {
             }
         }
 
-        System.out.println("Сотрудник №" + id + " имеет минимальную зарплату равную " + result);
+        System.out.println("\nСотрудник №" + id + " имеет минимальную зарплату равную " + result);
     }
 }
