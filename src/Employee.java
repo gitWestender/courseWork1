@@ -66,6 +66,8 @@ public class Employee {
 
         System.out.println("\nСреднее значение зарплат сотрудников равно "+ getAverageOfSalary(employeesArray));
 
+        indexAllSalary(employeesArray);
+        printAllInfo(employeesArray);
     }
 
     static Employee[] addToArray(Employee[] array, Employee emp) {
@@ -140,5 +142,17 @@ public class Employee {
         }
 
         System.out.println("\nСотрудник №" + id + " имеет минимальную зарплату равную " + result);
+    }
+
+    static void indexSalary(Employee emp){
+        emp.salary += emp.salary*0.1f;
+    }
+
+    static void indexAllSalary(Employee[] array){
+        int i = 0;
+        while (array[i] != null){
+            indexSalary(array[i]);
+            i++;
+        }
     }
 }
