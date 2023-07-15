@@ -62,6 +62,7 @@ public class Employee {
 
         getSummOfSalary(employeesArray);
         findMaxSalary(employeesArray);
+        findMinSalary(employeesArray);
 
     }
 
@@ -114,12 +115,28 @@ public class Employee {
     static void findMaxSalary(Employee[] array) {
         int result = Integer.MIN_VALUE;
         int id = 0;
+
         for (int i = 0; i < array.length; i++) {
             if (array[i] != null && array[i].salary > result){
                 result = array[i].salary;
                 id = array[i].getId();
             }
         }
+
+        System.out.println("Сотрудник №" + id + " имеет максимальную зарплату равную " + result);
+    }
+
+    static void findMinSalary(Employee[] array){
+        int result = Integer.MAX_VALUE;
+        int id = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != null && array[i].salary < result){
+                result = array[i].salary;
+                id = array[i].getId();
+            }
+        }
+
         System.out.println("Сотрудник №" + id + " имеет минимальную зарплату равную " + result);
     }
 }
