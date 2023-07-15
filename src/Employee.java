@@ -71,6 +71,9 @@ public class Employee {
 
         findMaxSalary(employeesArray, 5);
         findMinSalary(employeesArray, 5);
+
+        System.out.println("\nСумма зарплат сотрудников выбранного отдела равно " + getSummOfSalary(employeesArray, 5));
+        System.out.println("\nСреднее значение зарплат выбранного отдела равно " + getAverageOfSalary(employeesArray, 5));
     }
 
     static Employee[] addToArray(Employee[] array, Employee emp) {
@@ -185,5 +188,25 @@ public class Employee {
         }
 
         System.out.println("\nСотрудник отдела №" + department + " c ID " + id + " имеет минимальную зарплату равную " + result);
+    }
+
+    static int getSummOfSalary(Employee[] array, int department) {
+        int summ = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != null && array[i].department == department) {
+                summ += array[i].getSalary();
+            }
+        }
+        return summ;
+    }
+
+    static int getAverageOfSalary(Employee[] array, int department) {
+        int idCount = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != null && array[i].department == department){
+                idCount++;
+            }
+        }
+        return getSummOfSalary(array, department) / idCount;
     }
 }
