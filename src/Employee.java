@@ -1,4 +1,8 @@
+import java.util.Scanner;
+
 public class Employee {
+
+    static Scanner scanner = new Scanner(System.in);
 
     private String employee;
     private int department;
@@ -45,8 +49,10 @@ public class Employee {
         this.id = id;
     }
 
+    static Employee[] employeesArray = new Employee[10];
     public static void main(String[] args) {
-        Employee[] employeesArray = new Employee[10];
+
+
         Employee emp1 = new Employee("Катуков Василий Илларионович", 3, 5000);
         Employee emp2 = new Employee("Хлебникова Екатерина Ивановна", 1, 8500);
         Employee emp3 = new Employee("Чуков Денис Олегович", 5, 3750);
@@ -66,20 +72,22 @@ public class Employee {
 
         System.out.println("\nСреднее значение зарплат сотрудников равно " + getAverageOfSalary(employeesArray));
 
-        indexAllSalary(employeesArray);
-        printAllInfo(employeesArray);
+//        indexAllSalary(employeesArray);
+//        printAllInfo(employeesArray);
+//
+//        findMaxSalary(employeesArray, 5);
+//        findMinSalary(employeesArray, 5);
+//
+//        System.out.println("\nСумма зарплат сотрудников выбранного отдела равно " + getSummOfSalary(employeesArray, 5));
+//        System.out.println("\nСреднее значение зарплат выбранного отдела равно " + getAverageOfSalary(employeesArray, 5));
+//
+//        indexAllSalary(employeesArray, 5, 30);
+//        printAllInfo(employeesArray, 5);
+//
+//        printAllMinEmployees(employeesArray, 6000);
+//        printAllMaxEmployees(employeesArray, 6000);
 
-        findMaxSalary(employeesArray, 5);
-        findMinSalary(employeesArray, 5);
-
-        System.out.println("\nСумма зарплат сотрудников выбранного отдела равно " + getSummOfSalary(employeesArray, 5));
-        System.out.println("\nСреднее значение зарплат выбранного отдела равно " + getAverageOfSalary(employeesArray, 5));
-
-        indexAllSalary(employeesArray, 5, 30);
-        printAllInfo(employeesArray, 5);
-
-        printAllMinEmployees(employeesArray, 6000);
-        printAllMaxEmployees(employeesArray, 6000);
+        imputNumber();
     }
 
     static Employee[] addToArray(Employee[] array, Employee emp) {
@@ -256,5 +264,42 @@ public class Employee {
                 System.out.printf("Сотрудник №%d %s, зарплата сотрудника: %d \n", array[i].id, array[i].employee, array[i].salary);
             }
         }
+    }
+
+    static void imputNumber() {
+        System.out.println("Введите целое число. Если ввели от 1 до 5 произведем действия с отделами." +
+                " Если ввели от 1000 и больше произведем действия с зарплатой.");
+        int number = scanner.nextInt();
+
+        if (number > 0 && number < 6) {
+            System.out.println("Выполняем действия с отделом №" + number);
+            System.out.println("Ведите целочисленное число-процент, для индексации зарплаты по отделу");
+            int percent = scanner.nextInt();
+            scanner.close();
+            departmentMethods(number, percent);
+        } else {
+            System.out.println("Выполняем действия с зарплатой.");
+            salaryMethods(number);
+        }
+
+    }
+
+    static void salaryMethods(int salary) {
+        printAllMinEmployees(employeesArray, salary);
+        printAllMaxEmployees(employeesArray, salary);
+    }
+
+    static void departmentMethods(int number, int percent) {
+        indexAllSalary(employeesArray);
+        printAllInfo(employeesArray);
+
+        findMaxSalary(employeesArray, number);
+        findMinSalary(employeesArray, number);
+
+        System.out.println("\nСумма зарплат сотрудников выбранного отдела равно " + getSummOfSalary(employeesArray, 5));
+        System.out.println("\nСреднее значение зарплат выбранного отдела равно " + getAverageOfSalary(employeesArray, 5));
+
+        indexAllSalary(employeesArray, number, percent);
+        printAllInfo(employeesArray, number);
     }
 }
