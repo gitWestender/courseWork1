@@ -50,6 +50,7 @@ public class Employee {
     }
 
     static Employee[] employeesArray = new Employee[10];
+
     public static void main(String[] args) {
 
 
@@ -271,7 +272,9 @@ public class Employee {
                 " Если ввели от 1000 и больше произведем действия с зарплатой.");
         int number = scanner.nextInt();
 
-        if (number > 0 && number < 6) {
+        if (number <= 0 || (number > 5 && number < 1000)) {
+            System.out.println("Некоректное число. Попробуйте снова");
+        } else if (number > 0 && number < 6) {
             System.out.println("Выполняем действия с отделом №" + number);
             System.out.println("Ведите целочисленное число-процент, для индексации зарплаты по отделу");
             int percent = scanner.nextInt();
