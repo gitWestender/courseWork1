@@ -1,3 +1,5 @@
+package courseWork;
+
 import java.util.Scanner;
 
 public class Employee {
@@ -51,45 +53,12 @@ public class Employee {
 
     static Employee[] employeesArray = new Employee[10];
 
-    public static void main(String[] args) {
-
-
-        Employee emp1 = new Employee("Катуков Василий Илларионович", 3, 5000);
-        Employee emp2 = new Employee("Хлебникова Екатерина Ивановна", 1, 8500);
-        Employee emp3 = new Employee("Чуков Денис Олегович", 5, 3750);
-        Employee emp4 = new Employee("Салькова Ольга Николаевна", 5, 4250);
-
-        addToArray(employeesArray, emp1);
-        addToArray(employeesArray, emp2);
-        addToArray(employeesArray, emp3);
-        addToArray(employeesArray, emp4);
-
-        printAllNames(employeesArray);
-        printAllInfo(employeesArray);
-
-        getSummOfSalary(employeesArray);
-        findMaxSalary(employeesArray);
-        findMinSalary(employeesArray);
-
-        System.out.println("\nСреднее значение зарплат сотрудников равно " + getAverageOfSalary(employeesArray));
-
-//        indexAllSalary(employeesArray);
-//        printAllInfo(employeesArray);
-//
-//        findMaxSalary(employeesArray, 5);
-//        findMinSalary(employeesArray, 5);
-//
-//        System.out.println("\nСумма зарплат сотрудников выбранного отдела равно " + getSummOfSalary(employeesArray, 5));
-//        System.out.println("\nСреднее значение зарплат выбранного отдела равно " + getAverageOfSalary(employeesArray, 5));
-//
-//        indexAllSalary(employeesArray, 5, 30);
-//        printAllInfo(employeesArray, 5);
-//
-//        printAllMinEmployees(employeesArray, 6000);
-//        printAllMaxEmployees(employeesArray, 6000);
-
-        imputNumber();
+    @Override
+    public String toString() {
+        return "Сотрудник №" + id + " " + getEmployee() + ", отдел №" + getDepartment()
+                + ", зарплата сотрудника: " + getSalary();
     }
+
 
     static Employee[] addToArray(Employee[] array, Employee emp) {
         for (int i = 0; i < array.length; i++) {
@@ -107,12 +76,6 @@ public class Employee {
                 System.out.println(array[i].employee);
             }
         }
-    }
-
-    @Override
-    public String toString() {
-        return "Сотрудник №" + id + " " + getEmployee() + ", отдел №" + getDepartment()
-                + ", зарплата сотрудника: " + getSalary();
     }
 
     static void printAllInfo(Employee[] array) {
