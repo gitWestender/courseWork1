@@ -24,6 +24,7 @@ public class Employee {
     }
 
     public void setEmployee(String employee) {
+        if (employee != null)
         this.employee = employee;
     }
 
@@ -32,7 +33,8 @@ public class Employee {
     }
 
     public void setDepartment(int department) {
-        this.department = department;
+        if (department > 0 && department < 6)
+            this.department = department;
     }
 
     public int getSalary() {
@@ -40,7 +42,8 @@ public class Employee {
     }
 
     public void setSalary(int salary) {
-        this.salary = salary;
+        if (salary > 0)
+            this.salary = salary;
     }
 
     public int getId() {
