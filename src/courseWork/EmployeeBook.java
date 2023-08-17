@@ -142,4 +142,27 @@ public class EmployeeBook {
 
         System.out.println("\nСотрудник отдела №" + department + " c ID " + id + " имеет минимальную зарплату равную " + result);
     }
+
+    // Метод для нахождения суммы зарплат по отделу
+    public int getSummOfSalary(EmployeeBook eBook, int department) {
+        int summ = 0;
+        for (int i = 0; i < eBook.getEmployees().length; i++) {
+            if (eBook.getEmployees()[i] != null && eBook.getEmployees()[i].getDepartment() == department) {
+                summ += eBook.getEmployees()[i].getSalary();
+            }
+        }
+        return summ;
+    }
+
+    // Метод для нахождения среднего значения зарплаты по отделу
+    public int getAverageOfSalary(EmployeeBook eBook, int department) {
+        int idCount = 0;
+        for (int i = 0; i < eBook.getEmployees().length; i++) {
+            if (eBook.getEmployees()[i] != null && eBook.getEmployees()[i].getDepartment() == department) {
+                idCount++;
+            }
+        }
+        return getSummOfSalary(eBook, department) / idCount;
+    }
+
 }
