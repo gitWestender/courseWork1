@@ -1,6 +1,7 @@
 package courseWork;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class EmployeeBook {
 
@@ -212,4 +213,47 @@ public class EmployeeBook {
         }
     }
 
+
+    // Куммулятивный метод для выбранного отдела
+    public void imputNumber(EmployeeBook eBook) {
+        System.out.println("Введите целое число. Если ввели от 1 до 5 произведем действия с отделами." +
+                " Если ввели от 1000 и больше произведем действия с зарплатой.");
+        Scanner scanner = new Scanner(System.in);
+        int number = scanner.nextInt();
+
+        if (number <= 0 || (number > 5 && number < 1000)) {
+            System.out.println("Некоректное число. Попробуйте снова");
+        } else if (number > 0 && number < 6) {
+            System.out.println("Выполняем действия с отделом №" + number);
+            System.out.println("Ведите целочисленное число-процент, для индексации зарплаты по отделу");
+            int percent = scanner.nextInt();
+            scanner.close();
+            departmentMethods(eBook, number, percent);
+        } else {
+            System.out.println("Выполняем действия с зарплатой.");
+            salaryMethods(eBook, number);
+        }
+
+    }
+
+    // Метод для нахождения сотрудников с зарплатой меньше и больше указанной
+    public void salaryMethods(EmployeeBook eBook, int salary) {
+        printAllMinEmployees(eBook, salary);
+        printAllMaxEmployees(eBook, salary);
+    }
+
+    // Метод для выполнения действий с отделом
+    public void departmentMethods(EmployeeBook eBook, int number, int percent) {
+        indexAllSalary(eBook);
+        printAllInfo(eBook, number);
+
+        findMaxSalary(eBook, number);
+        findMinSalary(eBook, number);
+
+        System.out.println("\nСумма зарплат сотрудников выбранного отдела равно " + getSummOfSalary(eBook, number));
+        System.out.println("\nСреднее значение зарплат выбранного отдела равно " + getAverageOfSalary(eBook, number));
+
+        indexAllSalary(eBook, number, percent);
+        printAllInfo(eBook, number);
+    }
 }
