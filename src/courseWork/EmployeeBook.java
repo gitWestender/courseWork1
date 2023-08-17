@@ -112,4 +112,34 @@ public class EmployeeBook {
             i++;
         }
     }
+
+    // Метод для нахождения максимальной зарплаты по отделу
+    public void findMaxSalary(EmployeeBook eBook, int department) {
+        float result = Integer.MIN_VALUE;
+        int id = 0;
+
+        for (int i = 0; i < eBook.getEmployees().length; i++) {
+            if (eBook.getEmployees()[i] != null && eBook.getEmployees()[i].getSalary() > result && eBook.getEmployees()[i].getDepartment() == department) {
+                result = eBook.getEmployees()[i].getSalary();
+                id = eBook.getEmployees()[i].getId();
+            }
+        }
+
+        System.out.println("\nСотрудник отдела №" + department + " c ID " + id + " имеет максимальную зарплату равную " + result);
+    }
+
+    // Метод для нахождения минимальной зарплаты по отделу
+    public void findMinSalary(EmployeeBook eBook, int department) {
+        float result = Integer.MAX_VALUE;
+        int id = 0;
+
+        for (int i = 0; i < eBook.getEmployees().length; i++) {
+            if (eBook.getEmployees()[i] != null && eBook.getEmployees()[i].getSalary() < result && eBook.getEmployees()[i].getDepartment() == department) {
+                result = eBook.getEmployees()[i].getSalary();
+                id = eBook.getEmployees()[i].getId();
+            }
+        }
+
+        System.out.println("\nСотрудник отдела №" + department + " c ID " + id + " имеет минимальную зарплату равную " + result);
+    }
 }
