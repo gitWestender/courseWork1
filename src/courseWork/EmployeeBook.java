@@ -179,4 +179,37 @@ public class EmployeeBook {
         }
     }
 
+    // Метод для вывода информации о сотрудниках в отделе
+    public void printAllInfo(EmployeeBook eBook, int department) {
+        System.out.println("\nВсе сотрудники выбранного отдела (" + department + "):");
+        for (int i = 0; i < eBook.getEmployees().length; i++) {
+            if (eBook.getEmployees()[i] != null && eBook.getEmployees()[i].getDepartment() == department) {
+                System.out.printf("Сотрудник №%d %s, зарплата сотрудника: %d \n",
+                        eBook.getEmployees()[i].getId(), eBook.getEmployees()[i].getEmployee(), eBook.getEmployees()[i].getSalary());
+            }
+        }
+    }
+
+    // Метод для нахождения сотрудников с зарплатой меньше указанной
+    static void printAllMinEmployees(EmployeeBook eBook, int salary) {
+        System.out.println("\nСотрудники с запралтой меньше указанной (" + salary + "):");
+        for (int i = 0; i < eBook.getEmployees().length; i++) {
+            if (eBook.getEmployees()[i] != null && eBook.getEmployees()[i].getSalary() < salary) {
+                System.out.printf("Сотрудник №%d %s, зарплата сотрудника: %d \n",
+                        eBook.getEmployees()[i].getId(), eBook.getEmployees()[i].getEmployee(), eBook.getEmployees()[i].getSalary());
+            }
+        }
+    }
+
+    // Метод для нахождения сотрудников с зарплатой больше указанной
+    static void printAllMaxEmployees(EmployeeBook eBook, int salary) {
+        System.out.println("\nСотрудники с зарплатой выше и равной указанной (" + salary + "):");
+        for (int i = 0; i < eBook.getEmployees().length; i++) {
+            if (eBook.getEmployees()[i] != null && eBook.getEmployees()[i].getSalary() >= salary) {
+                System.out.printf("Сотрудник №%d %s, зарплата сотрудника: %d \n",
+                        eBook.getEmployees()[i].getId(), eBook.getEmployees()[i].getEmployee(), eBook.getEmployees()[i].getSalary());
+            }
+        }
+    }
+
 }
