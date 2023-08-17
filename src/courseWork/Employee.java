@@ -1,11 +1,8 @@
 package courseWork;
 
 import java.util.Objects;
-import java.util.Scanner;
 
 public class Employee {
-
-    static Scanner scanner = new Scanner(System.in);
 
     private String employee;
     private int department;
