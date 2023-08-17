@@ -18,6 +18,20 @@ package courseWork;
 public class Main {
 
     public static void main(String[] args) {
+        Employee emp1 = new Employee("Катуков Василий Илларионович", 3, 5000);
+        Employee emp2 = new Employee("Хлебникова Екатерина Ивановна", 1, 8500);
+        Employee emp3 = new Employee("Чуков Денис Олегович", 5, 3750);
+        Employee emp4 = new Employee("Салькова Ольга Николаевна", 5, 4250);
 
+        EmployeeBook eBook = new EmployeeBook();
+
+        eBook.addToBook(eBook.getEmployees(), emp1);
+        eBook.addToBook(eBook.getEmployees(), emp2);
+        eBook.addToBook(eBook.getEmployees(), emp3);
+        eBook.addToBook(eBook.getEmployees(), emp4);
+
+        eBook.printBook(eBook);
+        System.out.println();
+        eBook.printAllNames(eBook);
     }
 }
