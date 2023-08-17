@@ -1,5 +1,6 @@
 package courseWork;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Employee {
@@ -60,5 +61,18 @@ public class Employee {
     public String toString() {
         return "Сотрудник №" + id + " " + getEmployee() + ", отдел №" + getDepartment()
                 + ", зарплата сотрудника: " + getSalary();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee1 = (Employee) o;
+        return department == employee1.department && Float.compare(salary, employee1.salary) == 0 && id == employee1.id && Objects.equals(employee, employee1.employee);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(employee, department, salary, id);
     }
 }
