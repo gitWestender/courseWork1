@@ -165,4 +165,18 @@ public class EmployeeBook {
         return getSummOfSalary(eBook, department) / idCount;
     }
 
+    // Метод для индексации зарплаты сотрудника на выбранный процент
+    public void indexSalary(Employee emp, int percent) {
+        emp.setSalary(emp.getSalary() + emp.getSalary() * (percent / 100f));
+    }
+
+    // Метод для индексации зарплаты, сотрудников отдела на выбранный процент
+    public void indexAllSalary(EmployeeBook eBook, int department, int percent) {
+        for (int j = 0; j < eBook.getEmployees().length; j++) {
+            if (eBook.getEmployees()[j] != null && eBook.getEmployees()[j].getDepartment() == department) {
+                indexSalary(eBook.getEmployees()[j], percent);
+            }
+        }
+    }
+
 }
