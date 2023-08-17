@@ -71,7 +71,7 @@ public class EmployeeBook {
 
     //Метод для нахождения сотрудника с наибольшей зарплатой (по всей книге)
     public void findMaxSalary(EmployeeBook eBook) {
-        int result = Integer.MIN_VALUE;
+        float result = Integer.MIN_VALUE;
         int id = 0;
 
         for (int i = 0; i < eBook.getEmployees().length; i++) {
@@ -86,7 +86,7 @@ public class EmployeeBook {
 
     //Метод для нахождения сотрудника с наименьшей зарплатой (по всей книге)
     static void findMinSalary(EmployeeBook eBook) {
-        int result = Integer.MAX_VALUE;
+        float result = Integer.MAX_VALUE;
         int id = 0;
 
         for (int i = 0; i < eBook.getEmployees().length; i++) {
@@ -97,5 +97,19 @@ public class EmployeeBook {
         }
 
         System.out.println("\nСотрудник №" + id + " имеет минимальную зарплату равную " + result);
+    }
+
+    //Метод индексирующий зарплату выбранного сотрудника на 10%
+    public void indexSalary(EmployeeBook eBook, Employee emp) {
+        emp.setSalary(emp.getSalary() + emp.getSalary() * 0.1f);
+    }
+
+    ////Метод индексирующий зарплату всех сотрудников на 10%
+    public void indexAllSalary(EmployeeBook eBook) {
+        int i = 0;
+        while (eBook.getEmployees()[i] != null) {
+            indexSalary(eBook, eBook.getEmployees()[i]);
+            i++;
+        }
     }
 }
