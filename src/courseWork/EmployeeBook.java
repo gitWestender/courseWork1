@@ -284,4 +284,72 @@ public class EmployeeBook {
         }
         return array;
     }
+
+    //Метод для изменения сотрудника, полученного по ФИО
+    public void changeEmployee (Employee[] array, String fullname) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Укажите, что вы хотите сделать:");
+        System.out.println("[1] - Изменить зарплату" + "\n[2] - Изменить отдел");
+
+        int input = scanner.nextInt();
+        if (input == 1) {
+            for (int i = 0; i < array.length; i++) {
+                if (array[i] != null && fullname.equals(array[i].getEmployee())) {
+                    changeEmployeeSalary(array[i]);
+                }
+            }
+        }
+        if (input == 2) {
+            for (int i = 0; i < array.length; i++) {
+                if (array[i] != null && fullname.equals(array[i].getEmployee())) {
+                    changeEmployeeID(array[i]);
+                }
+            }
+        }
+    }
+
+    ////Метод для изменения сотрудника, полученного по ID
+    public void changeEmployee (Employee[] array, int id) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Укажите, что вы хотите сделать:");
+        System.out.println("[1] - Изменить зарплату" + "\n[2] - Изменить отдел");
+
+        int input = scanner.nextInt();
+        if (input == 1) {
+            for (int i = 0; i < array.length; i++) {
+                if (array[i] != null && id == array[i].getId()) {
+                    changeEmployeeSalary(array[i]);
+                }
+            }
+        }
+        if (input == 2) {
+            for (int i = 0; i < array.length; i++) {
+                if (array[i] != null && id == array[i].getId()) {
+                    changeEmployeeID(array[i]);
+                }
+            }
+        }
+    }
+
+    //Метод для изменения зарплаты сотрудника
+    public void changeEmployeeSalary(Employee emp) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Укажите каккую заплату нужно назначить сотруднику: ");
+
+        int newSalary = scanner.nextInt();
+        emp.setSalary(newSalary);
+    }
+
+    ////Метод для изменения отдела сотрудника
+    public void changeEmployeeID(Employee emp) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Укажите в какой отдел нужно назначить сотруднику: ");
+
+        int newDepartment = scanner.nextInt();
+        if (newDepartment > 0 && newDepartment < 6) {
+            emp.setDepartment(newDepartment);
+        } else {
+            System.out.println("Такого отдела не существует");
+        }
+    }
 }
