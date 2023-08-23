@@ -265,9 +265,20 @@ public class EmployeeBook {
         printAllInfo(eBook, number);
     }
 
-    public Employee[] deleteFromBook(Employee[] array, Employee emp) {
-        for (int i = 0; i < employees.length; i++) {
-            if (emp.equals(array[i])) {
+    //метод для удаления сотрудника из книги по его ФИО
+    public Employee[] deleteFromBook(Employee[] array, String fullname) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != null && fullname.equals(array[i].getEmployee())) {
+                array[i] = null;
+            }
+        }
+        return array;
+    }
+
+    //метод для удаления сотрудника из книги по его ID
+    public Employee[] deleteFromBook(Employee[] array, int id) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != null && id == array[i].getId()) {
                 array[i] = null;
             }
         }
