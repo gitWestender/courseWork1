@@ -40,12 +40,17 @@ public class EmployeeBook {
         }
     }
 
-    //Метод который выводить имена сотрудников из книги
+    //Метод который выводить имена сотрудников из книги отсортированной по отделам
     public void printAllNames(EmployeeBook eBook) {
-        for (int i = 0; i < employees.length; i++) {
-            if (employees[i] != null) {
-                System.out.println(employees[i].getEmployee());
+        int department = 1;
+        for (int i = 0; i < department && department < 6; i++) {
+            System.out.println("\nСотрудники отдела " + department);
+            for (int j = 0; j < employees.length; j++) {
+                if (employees[j] != null && employees[j].getDepartment() == department) {
+                    System.out.println(employees[j].getEmployee());
+                }
             }
+            department++;
         }
     }
 
