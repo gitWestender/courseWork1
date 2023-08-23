@@ -66,8 +66,16 @@ public class EmployeeBook {
     }
 
     //Метод для подсчета среднего значения зарплат сотрудников
-    public int getAverageOfSalary(EmployeeBook eBook) {
-        return getSummOfSalary(eBook) / eBook.getEmployees().length;
+    public double getAverageOfSalary(EmployeeBook eBook) {
+        int count = 0;
+        for (int i = 0; i < eBook.getEmployees().length; i++) {
+            if (eBook.getEmployees()[i] != null) {
+                count++;
+            } else {
+                continue;
+            }
+        }
+        return getSummOfSalary(eBook) / count;
     }
 
     //Метод для нахождения сотрудника с наибольшей зарплатой (по всей книге)
