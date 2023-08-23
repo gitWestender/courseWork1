@@ -41,7 +41,7 @@ public class EmployeeBook {
     }
 
     //Метод который выводить имена сотрудников из книги
-    void printAllNames(EmployeeBook eBook) {
+    public void printAllNames(EmployeeBook eBook) {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] != null) {
                 System.out.println(employees[i].getEmployee());
@@ -94,7 +94,7 @@ public class EmployeeBook {
     }
 
     //Метод для нахождения сотрудника с наименьшей зарплатой (по всей книге)
-    static void findMinSalary(EmployeeBook eBook) {
+    public void findMinSalary(EmployeeBook eBook) {
         float result = Integer.MAX_VALUE;
         int id = 0;
 
@@ -200,7 +200,7 @@ public class EmployeeBook {
     }
 
     // Метод для нахождения сотрудников с зарплатой меньше указанной
-    static void printAllMinEmployees(EmployeeBook eBook, int salary) {
+    public void printAllMinEmployees(EmployeeBook eBook, int salary) {
         System.out.println("\nСотрудники с запралтой меньше указанной (" + salary + "):");
         for (int i = 0; i < eBook.getEmployees().length; i++) {
             if (eBook.getEmployees()[i] != null && eBook.getEmployees()[i].getSalary() < salary) {
@@ -211,7 +211,7 @@ public class EmployeeBook {
     }
 
     // Метод для нахождения сотрудников с зарплатой больше указанной
-    static void printAllMaxEmployees(EmployeeBook eBook, int salary) {
+    public void printAllMaxEmployees(EmployeeBook eBook, int salary) {
         System.out.println("\nСотрудники с зарплатой выше и равной указанной (" + salary + "):");
         for (int i = 0; i < eBook.getEmployees().length; i++) {
             if (eBook.getEmployees()[i] != null && eBook.getEmployees()[i].getSalary() >= salary) {
