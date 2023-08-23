@@ -30,8 +30,6 @@ public class Main {
         eBook.addToBook(eBook.getEmployees(), emp3);
         eBook.addToBook(eBook.getEmployees(), emp4);
 
-        eBook.printBook(eBook);
-        System.out.println();
-        eBook.printAllNames(eBook);
+
     }
 }
