@@ -264,4 +264,13 @@ public class EmployeeBook {
         indexAllSalary(eBook, number, percent);
         printAllInfo(eBook, number);
     }
+
+    public Employee[] deleteFromBook(Employee[] array, Employee emp) {
+        for (int i = 0; i < employees.length; i++) {
+            if (emp.equals(array[i])) {
+                array[i] = null;
+            }
+        }
+        return array;
+    }
 }
