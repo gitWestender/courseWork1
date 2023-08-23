@@ -100,7 +100,14 @@ public class Employee {
     }
 
     static int getAverageOfSalary(Employee[] array) {
-        return getSummOfSalary(array) / array.length;
+        int count = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != null) {
+                count++;
+            } else
+                continue;
+        }
+        return getSummOfSalary(array) / count;
     }
 
     static void findMaxSalary(Employee[] array) {
