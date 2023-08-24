@@ -95,32 +95,30 @@ public class EmployeeBook {
 
     //Метод для нахождения сотрудника с наибольшей зарплатой (по всей книге)
     public void findMaxSalary(EmployeeBook eBook) {
-        float result = Integer.MIN_VALUE;
-        int id = 0;
+        Employee temp = new Employee("temp", 1, 0);
 
         for (int i = 0; i < eBook.getEmployees().length; i++) {
-            if (eBook.getEmployees()[i] != null && eBook.getEmployees()[i].getSalary() > result) {
-                result = eBook.getEmployees()[i].getSalary();
-                id = eBook.getEmployees()[i].getId();
+            if (eBook.getEmployees()[i] != null && eBook.getEmployees()[i].getSalary() > temp.getSalary()) {
+                temp.setSalary(eBook.getEmployees()[i].getSalary());
+                temp.setId(eBook.getEmployees()[i].getId());
             }
         }
 
-        System.out.println("\nСотрудник №" + id + " имеет максимальную зарплату равную " + result);
+        System.out.println("\nСотрудник №" + temp.getId() + " имеет максимальную зарплату равную " + temp.getSalary());
     }
 
     //Метод для нахождения сотрудника с наименьшей зарплатой (по всей книге)
     public void findMinSalary(EmployeeBook eBook) {
-        float result = Integer.MAX_VALUE;
-        int id = 0;
+        Employee temp = new Employee("temp", 1, 0);
 
         for (int i = 0; i < eBook.getEmployees().length; i++) {
-            if (eBook.getEmployees()[i] != null && eBook.getEmployees()[i].getSalary() < result) {
-                result = eBook.getEmployees()[i].getSalary();
-                id = eBook.getEmployees()[i].getId();
+            if (eBook.getEmployees()[i] != null && eBook.getEmployees()[i].getSalary() < temp.getSalary()) {
+                temp.setSalary(eBook.getEmployees()[i].getSalary());
+                temp.setId(eBook.getEmployees()[i].getId());
             }
         }
 
-        System.out.println("\nСотрудник №" + id + " имеет минимальную зарплату равную " + result);
+        System.out.println("\nСотрудник №" + temp.getId() + " имеет минимальную зарплату равную " + temp.getSalary());
     }
 
     //Метод индексирующий зарплату выбранного сотрудника на 10%
