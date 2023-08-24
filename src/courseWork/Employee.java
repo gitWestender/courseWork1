@@ -8,13 +8,22 @@ public class Employee {
     private int department;
     private float salary;
     private int id;
-    static int counter = 1;
+    private static int counter = 1;
 
     public Employee(String employee, int department, int salary) {
         this.setEmployee(employee);
         this.setDepartment(department);
         this.setSalary(salary);
-        this.setId(counter++);
+        this.setId(getCounter());
+        setCounter(getCounter() + 1);
+    }
+
+    public int getCounter() {
+        return counter;
+    }
+
+    public void setCounter(int counter) {
+        this.counter++;
     }
 
     public String getEmployee() {
@@ -23,7 +32,7 @@ public class Employee {
 
     public void setEmployee(String employee) {
         if (employee != null)
-        this.employee = employee;
+            this.employee = employee;
     }
 
     public int getDepartment() {
