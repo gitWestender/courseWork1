@@ -21,6 +21,17 @@ public class EmployeeBook {
 
     //Метод добавляющий сотрудника на первое незанятое в книге место
     public Employee[] addToBook(Employee emp) {
+        int count = 0;
+        for (int j = 0; j < employees.length; j++) {
+            if (employees[j] != null) {
+                count++;
+            }
+        }
+
+        if (count == employees.length) {
+            createLargerArray(employees);
+        }
+
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] == null) {
                 employees[i] = emp;
@@ -54,8 +65,8 @@ public class EmployeeBook {
     }
 
     //Метод создающий больший массив для хранения информации о сотрудниках
-    public Employee[] createLargerArray(Employee[] employees) {
-        return Arrays.copyOf(employees, employees.length + 1);
+    private Employee[] createLargerArray(Employee[] employees) {
+        return Arrays.copyOf(employees, employees.length * 2);
     }
 
     //Метод для подсчета общей суммы зарплат сотрудников
