@@ -270,23 +270,21 @@ public class EmployeeBook {
     }
 
     //метод для удаления сотрудника из книги по его ФИО
-    public Employee[] deleteFromBook(Employee[] array, String fullname) {
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] != null && fullname.equals(array[i].getEmployee())) {
-                array[i] = null;
+    public void deleteFromBook(String fullname) {
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i] != null && fullname.equals(employees[i].getEmployee())) {
+                employees[i] = null;
             }
         }
-        return array;
     }
 
     //метод для удаления сотрудника из книги по его ID
-    public Employee[] deleteFromBook(Employee[] array, int id) {
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] != null && id == array[i].getId()) {
-                array[i] = null;
+    public void deleteFromBook(int id) {
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i] != null && id == employees[i].getId()) {
+                employees[i] = null;
             }
         }
-        return array;
     }
 
     //Метод для изменения сотрудника, полученного по ФИО
