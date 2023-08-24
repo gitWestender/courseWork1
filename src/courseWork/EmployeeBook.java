@@ -20,8 +20,7 @@ public class EmployeeBook {
     }
 
     //Метод добавляющий сотрудника на первое незанятое в книге место
-    public Employee[] addToBook(Employee[] employees, Employee emp) {
-
+    public Employee[] addToBook(Employee emp) {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] == null) {
                 employees[i] = emp;
@@ -32,7 +31,7 @@ public class EmployeeBook {
     }
 
     //Метод который выводить полную информацию о сотрудниках из книги
-    public void printBook(EmployeeBook eBook) {
+    public void printBook() {
         for (int i = 0; i < employees.length - 1; i++) {
             if (employees[i] != null) {
                 System.out.println(employees[i].toString());
@@ -41,9 +40,9 @@ public class EmployeeBook {
     }
 
     //Метод который выводить имена сотрудников из книги отсортированной по отделам
-    public void printAllNames(EmployeeBook eBook) {
+    public void printAllNames() {
         int department = 1;
-        for (int i = 0; i < department && department < 6; i++) {
+        for (; department < 6; ) {
             System.out.println("\nСотрудники отдела " + department);
             for (int j = 0; j < employees.length; j++) {
                 if (employees[j] != null && employees[j].getDepartment() == department) {
@@ -291,7 +290,7 @@ public class EmployeeBook {
     }
 
     //Метод для изменения сотрудника, полученного по ФИО
-    public void changeEmployee (Employee[] array, String fullname) {
+    public void changeEmployee(Employee[] array, String fullname) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Укажите, что вы хотите сделать:");
         System.out.println("[1] - Изменить зарплату" + "\n[2] - Изменить отдел");
@@ -314,7 +313,7 @@ public class EmployeeBook {
     }
 
     ////Метод для изменения сотрудника, полученного по ID
-    public void changeEmployee (Employee[] array, int id) {
+    public void changeEmployee(Employee[] array, int id) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Укажите, что вы хотите сделать:");
         System.out.println("[1] - Изменить зарплату" + "\n[2] - Изменить отдел");
