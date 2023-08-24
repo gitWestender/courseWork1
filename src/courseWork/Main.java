@@ -25,11 +25,15 @@ public class Main {
 
         EmployeeBook eBook = new EmployeeBook();
 
-        eBook.addToBook(eBook.getEmployees(), emp1);
-        eBook.addToBook(eBook.getEmployees(), emp2);
-        eBook.addToBook(eBook.getEmployees(), emp3);
-        eBook.addToBook(eBook.getEmployees(), emp4);
+        eBook.addToBook(emp1);
+        eBook.addToBook(emp2);
+        eBook.addToBook(emp3);
+        eBook.addToBook(emp4);
 
+        eBook.printBook();
+        System.out.println();
 
+        eBook.deleteFromBook("Салькова Ольга Николаевна");
+        eBook.printBook();
     }
 }
